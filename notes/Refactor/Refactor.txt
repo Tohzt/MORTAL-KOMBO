@@ -1,0 +1,15 @@
+I need to refactor my Attack/State Machinces. 
+
+State Machine
+- Idle
+- Move
+	- Jump
+	- Crouch
+- Action (takes Action* Machine)
+- Death
+
+Action Machine
+- Punch
++ Uppercut
+- Block
++ Low Block
