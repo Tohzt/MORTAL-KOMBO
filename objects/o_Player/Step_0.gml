@@ -225,7 +225,7 @@ switch(state_cur) {
 				state_name = "PUNCH_H";
 				hsp = 0;
 				// Update Anim
-				anim_cur = ANIMS.HPUNCH;
+				anim_cur = ANI2MS.HPUNCH;
 		
 				if (sprite_index = ANIMS.HPUNCH) {
 					if (floor(image_index) == image_number-1) {
@@ -242,26 +242,33 @@ switch(state_cur) {
 		
 	case STATES.HURT:
 		state_name = "HURT";
-		if (state_dur == 0) {
-			if (incDamage.target == "mid")
-				anim_cur = ANIMS.HURT;
-			if (incDamage.target == "high")
-				anim_cur = ANIMS.HURT_H;
-			else
-				show_message("error: Missing Target ~o_Player/Step");
-			image_index = 0;
-			image_speed = 0.5;
 			
-			// Take Damage
-			hp -= incDamage.damage;
-			if (incDamage.knockback > 0) hsp -= incDamage.knockback*image_xscale
-		}
-		else {
-			if (floor(image_index) == image_number-1) image_speed = 0;
+		// EVALUATE THREAT -------
+		var isValid = true;
+		if (isValid) {
+			if (state_dur == 0) {
+				if (incDamage.target == "mid")
+					anim_cur = ANIMS.HURT;
+				else if (incDamage.target == "high")
+					anim_cur = ANIMS.HURT_H;
+				else
+					show_message("error: Missing Target ~o_Player/Step << "+string(incDamage.target));
+				
+				
+				image_index = 0;
+				image_speed = 0.5;
 			
-			// Go Idle After Duration
-			if (state_dur >= 30) {
-				state_cur = STATES.IDLE;
+				// Take Damage
+				hp -= incDamage.damage;
+				if (incDamage.knockback > 0) hsp -= incDamage.knockback*image_xscale
+			}
+			else {
+				if (floor(image_index) == image_number-1) image_speed = 0;
+			
+				// Go Idle After Duration
+				if (state_dur >= 30) {
+					state_cur = STATES.IDLE;
+				}
 			}
 		}
 		break;
