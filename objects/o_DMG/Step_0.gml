@@ -1,26 +1,19 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-x = mouse_x;
-y = mouse_y;
 image_alpha = 0.5;
 
-if (place_meeting(x,y,o_Player)) {
-	var inst = instance_place(x,y,o_Player);
+if (place_meeting(x,y,target)) {
+	var inst = instance_place(x,y,target);
 	if (inst != noone) {
 		with (inst) {
-			state_cur = STATES.HURT;
-			incDamage.damage = other.damage;
-			incDamage.target = other.target;
-			incDamage.knockback = other.knockback;
+			PLAYER_STATE_CHANGE(STATES.HURT, State.current, 0, true);
+			Collision.damage = other.damage;
+			Collision.target = other.target;
+			Collision.knockback = other.knockback;
+			Collision.hitbox	= other.hitbox
 		}
+		show_debug_message("HIT: "+hitbox);
 		instance_destroy();
 	}
-}
-
-// Change Target
-image_blend = c_white;
-if (y < SYSTEM.Player_One.y - 128) {
-	target = "high";
-	image_blend = c_red;
 }

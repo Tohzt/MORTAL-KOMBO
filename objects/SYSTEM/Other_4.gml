@@ -11,16 +11,21 @@ switch (room)
 		// Spawn Players
 		Player_One = pointer_null;
 		Player_Two = pointer_null;
-		Player_One = instance_create_depth(96, 416, depth, o_Player);
+		Player_One = instance_create_depth(300, 480, depth, o_Player);
 		with (Player_One) {
 			image_blend = other.p1_col;
 		}
-		/*
-		Player_Two = instance_create_depth(room_width-96, 416, depth, o_Player);
+		
+		Player_Two = instance_create_depth(room_width-300, 416, depth, o_Player);
 		with (Player_Two) {
 			input = "P2";
+			dir = -1;
 			image_xscale = -1;
 			image_blend = other.p2_col;
-		}*/
+		}
+		
+		// Update Player Targets
+		Player_One.target = other.Player_Two;
+		Player_Two.target = other.Player_One;
 		break;
 }

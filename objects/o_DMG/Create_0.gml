@@ -2,5 +2,8 @@
 // You can write your code in this editor
 
 damage = 5;
-target = "mid";
+target = pointer_null;
 knockback = 10;
+hitbox = "";
+
+alarm[0] = 10;

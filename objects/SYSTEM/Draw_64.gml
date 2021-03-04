@@ -8,7 +8,8 @@ switch(room)
 {
 	case Arena:
 		if (show_var) {
-			draw_text(8, 8, "State: " + Player_One.state_name);
+			draw_text(8, 8, "State: " + string(Player_One.State));
+			/*
 			draw_text(8, 20, "Ground: " + string(Player_One.grounded));
 			draw_text(8, 32, "Crouch: " + string(Player_One.crouched));
 			draw_text(8, 44, "HSP: " + string(Player_One.hsp));
@@ -16,8 +17,8 @@ switch(room)
 			draw_text(8, 68, "SPD/RES: " + string(Player_One.spd) +"/"+ string(Player_One.spd_res));
 			draw_text(8, 80, "Img Spd: " + string(Player_One.image_speed));
 	
-	
 			draw_text(80, 8, "HP/MAX: " + string(Player_One.hp) + "/" + string(Player_One.hp_max));
+			*/
 		}
 		
 		// Display Health Bars

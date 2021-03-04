@@ -9,67 +9,47 @@ input = "P1";
 hsp = 0;
 vsp = 0;
 move_h = 0;
-move_v = 0;
+dir = 1; // LEFT: -1 | RIGHT: 1 
 
-spd = 2.5;
-spd_res = 1;
-jsp = -8;
+spd = 5;
+spd_defaultModifier = 1;
+spd_modifier = spd_defaultModifier;
+jsp = -14;
+
+target = pointer_null;
 
 // Attack Variables
-act_delay = 10;
-act_cd = 0;
-
-enum ACTIONS {
-	PUNCH,
-	UPPERCUT,
-	HIGHPUNCH,
-	BLOCK,
-	LOWBLOCK,
-	KICK,
-	NULL
-}
-act_cur = ACTIONS.NULL;
-
-// Animation Machine
-enum ANIMS {
-	IDLE	= s_IDLE,
-	WALK	= s_WALK,
-	CROUCH	= s_CROUCH,
-	JUMP	= s_JUMP,
-	PUNCH	= s_PUNCH,
-	UPCUT	= s_UPPERCUT,
-	HPUNCH	= s_HIGHPUNCH,
-	BLOCK	= s_BLOCK,
-	BLOCK_L = s_BLOCK_L,
-	BLOCK_H = s_BLOCK_H,
-	HURT	= s_HURT,
-	HURT_H	= s_HURT_H,
-	DEATH	= s_DEATH
-}
-anim_cur = ANIMS.IDLE;
-anim_spd = 0.25;
-anim_dir = 1;
-
-// State Machine
-enum STATES {
-	IDLE,
-	MOVE,
-	ACTION,
-	HURT,
-	DEAD
-}
-state_name	= "";
-state_init	= true;
-state_cur	= STATES.IDLE;
-state_prev	= STATES.IDLE;
-state_dur	= 0;
-grounded	= false;
-crouched	= false;
-alive		= true;
+atk_delay = 10;
+atk_cd	  = 0;
+atk_x = pointer_null;
+atk_y = pointer_null;
 
 // Damage Variables
-incDamage = {
+Collision = {
 	damage	  : 0,
 	target	  : "",
 	knockback : false,
+	hitbox	  : "mid"
+};
+
+// State Machine
+enum STATES {
+	IDLE,		TAUNT,
+	WALK,		RUN,
+	CROUCH,		JUMP,	FALL,
+	BLOCK_H,	BLOCK,	BLOCK_L,
+	PUNCH_H,	PUNCH,	PUNCH_L,
+	KICK_H,		KICK,	KICK_L,
+	HURT_H,		HURT,	HURT_L,
+	DEAD
+}
+
+State = {
+	name : "IDLE",
+	current : STATES.IDLE,
+	previous : STATES.IDLE,
+	elapse : 0,
+	anim : s_IDLE,
+	animSpd : 0.5,
+	animLoop : true
 };

@@ -7,6 +7,7 @@ function PlayerInput(str){
 		inp_R  = keyboard_check(vk_right);
 		inp_U  = keyboard_check(vk_up);
 		inp_D  = keyboard_check(vk_down);
+		inp_U_Pressed = keyboard_check_pressed(vk_up);
 		
 		inp_PUNCH = keyboard_check_pressed(ord("1")); // Left Butt
 		inp_JUMP  = keyboard_check_pressed(ord("2")); // Bottom Butt
@@ -22,6 +23,7 @@ function PlayerInput(str){
 		inp_R  = keyboard_check(ord("D"));
 		inp_U  = keyboard_check(ord("W"));
 		inp_D  = keyboard_check(ord("S"));
+		inp_U_Pressed = keyboard_check_pressed(ord("W"));
 		
 		inp_PUNCH = keyboard_check_pressed(ord("7")); // Left Butt
 		inp_JUMP  = keyboard_check_pressed(ord("8")); // Bottom Butt
