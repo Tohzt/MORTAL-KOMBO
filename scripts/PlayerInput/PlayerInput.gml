@@ -13,7 +13,7 @@ function PlayerInput(str){
 		inp_JUMP  = keyboard_check_pressed(ord("2")); // Bottom Butt
 		inp_KICK  = keyboard_check_pressed(ord("3")); // Right Butt
 		inp_BLOCK = keyboard_check(ord("4"));		  // Top Butt
-		inp_LB	  = keyboard_check(ord("5"));
+		inp_LB	  = keyboard_check_pressed(ord("5"));
 		inp_RB	  = keyboard_check(ord("6"));
 		
 		inp_Select = keyboard_check_pressed(vk_tab);
@@ -29,7 +29,7 @@ function PlayerInput(str){
 		inp_JUMP  = keyboard_check_pressed(ord("8")); // Bottom Butt
 		inp_KICK  = keyboard_check_pressed(ord("9")); // Right Butt
 		inp_BLOCK = keyboard_check(ord("0"));		  // Top Butt
-		inp_LB	  = keyboard_check(ord("Q"));
+		inp_LB	  = keyboard_check_pressed(ord("Q"));
 		inp_RB	  = keyboard_check(ord("E"));
 		
 		inp_Select = keyboard_check_pressed(vk_backspace);

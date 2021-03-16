@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4a2de9aa-f1b6-46d1-86ab-2c632d4cbcc0","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "TEST",
-    "path": "folders/TEST.yy",
+    "name": "DAMAGE",
+    "path": "folders/PLAYER/DAMAGE.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_DMG",

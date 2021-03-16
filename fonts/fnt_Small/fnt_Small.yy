@@ -127,8 +127,8 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "2D_Fighter",
-    "path": "2D_Fighter.yyp",
+    "name": "SYSTEM",
+    "path": "folders/SYSTEM.yy",
   },
   "resourceVersion": "1.0",
   "name": "fnt_Small",
